@@ -99,6 +99,13 @@ class CmdCallbackObject
      * @return                  TRUE if function is valid and calling
      */
     virtual bool callStoreFunct(size_t idx, CmdParser *cmdParser) = 0;
+
+    /**
+     * Give the array of defined commands.
+     *
+     * @return                  Command list array
+     */
+    virtual T getCmdList() = 0;
 };
 
 /**
@@ -169,6 +176,11 @@ class _CmdCallback : public CmdCallbackObject
 
         return false;
     }
+
+    /**
+     * @implement CmdCallbackObject
+     */
+    virtual T getCmdList() { return m_cmdList; }
 
   protected:
     /** Array with list of commands */
