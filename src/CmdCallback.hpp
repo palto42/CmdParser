@@ -101,11 +101,12 @@ class CmdCallbackObject
     virtual bool callStoreFunct(size_t idx, CmdParser *cmdParser) = 0;
 
     /**
-     * Give the array of defined commands.
+     * Get command name string from store
      *
+     * @param idx               Store number
      * @return                  Command list array
      */
-    virtual T getCmdList() = 0;
+    virtual char * getCmdList(size_t idx) = 0;
 };
 
 /**
@@ -180,7 +181,7 @@ class _CmdCallback : public CmdCallbackObject
     /**
      * @implement CmdCallbackObject
      */
-    virtual T getCmdList() { return m_cmdList; }
+    virtual char * getCmdList() { return m_cmdList[idx]; }
 
   protected:
     /** Array with list of commands */
