@@ -106,7 +106,7 @@ class CmdCallbackObject
      * @param idx               Store number
      * @return                  Command list array
      */
-    virtual char * getCmdList(size_t idx) = 0;
+    virtual const char * getCmdList(size_t idx) = 0;
 };
 
 /**
@@ -181,7 +181,7 @@ class _CmdCallback : public CmdCallbackObject
     /**
      * @implement CmdCallbackObject
      */
-    virtual char * getCmdList() { return m_cmdList[idx]; }
+    virtual const char * getCmdList(size_t idx) { return m_cmdList[idx]; }
 
   protected:
     /** Array with list of commands */
